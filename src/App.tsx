@@ -20,7 +20,7 @@ export default function App() {
       <div className="xl:flex font-rubik mt-20 xl:mt-40 xl:justify-between xl:items-center">
         <div className="xl:hidden xl:w-1/2 lg:relative flex w-full justify-center">
           <img
-            src="./src/image/hero.png"
+            src={"https://ridwan-bahtiar.netlify.app/src/image/hero.png"}
             alt="hero"
             className="w-64 h-6w-64 rounded-full border-4 border-[#282825]"
           />
