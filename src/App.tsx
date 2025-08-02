@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import getImageUrl from "./utils/imageGetter";
 
 export default function App() {
   return (
@@ -6,7 +7,9 @@ export default function App() {
     <div className="font-rubik w-full py-6 px-6 lg:py-12 lg:px-28 bg-[#f9f5f2] h-screen">
       {/* Navbar */}
       <div className="flex justify-between text-[#282825]">
-        <div className="text-2xl font-medium">Ridwan.Bahtiar</div>
+        <div className="max-sm:text-lg text-2xl font-medium">
+          Ridwan.Bahtiar
+        </div>
         <div className="max-lg:hidden text-lg flex gap-16">
           <p className="transition-all duration-100 hover:scale-110">About</p>
           <p className="transition-all duration-100 hover:scale-110">
@@ -20,7 +23,7 @@ export default function App() {
       <div className="xl:flex font-rubik mt-20 xl:mt-40 xl:justify-between xl:items-center">
         <div className="xl:hidden xl:w-1/2 lg:relative flex w-full justify-center">
           <img
-            src={"https://ridwan-bahtiar.netlify.app/src/image/hero.png"}
+            src={getImageUrl("hero", "png")}
             alt="hero"
             className="w-64 h-6w-64 rounded-full border-4 border-[#282825]"
           />
@@ -49,7 +52,7 @@ export default function App() {
           <div className="w-96 h-96 bg-[#282825] rounded-full absolute bottom-[-12rem] left-[11rem]"></div>
           <div className="absolute bottom-[-12rem] left-40">
             <img
-              src="./src/image/hero.png"
+              src={getImageUrl("hero", "png")}
               alt="hero"
               className="w-96 h-96 rounded-full border-4 border-[#282825]"
             />
