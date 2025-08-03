@@ -17,7 +17,7 @@ export default function App() {
           <div
             className="lg:hidden"
             onClick={() => {
-              setIsDropdownShow(true);
+              setIsDropdownShow(false);
               console.log("ok");
             }}
           >
