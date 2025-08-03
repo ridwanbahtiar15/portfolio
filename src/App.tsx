@@ -69,17 +69,12 @@ export default function App() {
             <img
               src={getImageUrl("code", "png")}
               alt="icon"
-              className="w-20 absolute top-40 left-6 md:left-44"
+              className="w-20 absolute bottom-0 left-6 md:left-44"
             />
             <img
               src={getImageUrl("avo", "png")}
               alt="icon"
               className="w-20 absolute top-0 right-6 md:right-44"
-            />
-            <img
-              src={getImageUrl("oscilloscope", "png")}
-              alt="icon"
-              className="w-20 absolute bottom-0 right-6 md:right-44"
             />
             <motion.img
               src={getImageUrl("hero", "png")}
@@ -107,12 +102,12 @@ export default function App() {
               building projects that combine both fields.
             </p>
             <div className="relative">
-              <div className="w-[8.9rem] h-[2.7rem] lg:w-[10.8rem] lg:h-[3.7rem] bg-[#282825] absolute top-[-0.8rem] left-2 rounded-xl"></div>
+              <div className="w-[10.3rem] h-[2.7rem] lg:w-[12.3rem] lg:h-[3.7rem] bg-[#282825] absolute top-[-0.8rem] left-2 rounded-xl"></div>
               <Link
                 to="#contact"
                 className="text-sm lg:text-base font-medium text-[#282825] py-2.5 px-6 lg:py-4 lg:px-8 bg-[#f7cb45] border-2 border-[#282825] rounded-xl absolute top-[-1.2rem] left-0 transition-all duration-300 lg:active:top-[-1rem] lg:active:left-[0.2rem] max-sm:active:top-[-1rem] max-sm:active:left-[0.1rem]"
               >
-                Start Growing
+                🚀 Start Growing
               </Link>
             </div>
           </div>
@@ -120,7 +115,7 @@ export default function App() {
             <img
               src={getImageUrl("code", "png")}
               alt="icon"
-              className="w-28 absolute top-0 left-24"
+              className="w-28 absolute top-2 left-20"
             />
             <img
               src={getImageUrl("lcd", "png")}
@@ -131,11 +126,6 @@ export default function App() {
               src={getImageUrl("avo", "png")}
               alt="icon"
               className="w-28 absolute bottom-28 right-0"
-            />
-            <img
-              src={getImageUrl("oscilloscope", "png")}
-              alt="icon"
-              className="w-28 absolute top-20 right-[-2rem]"
             />
             <div className="w-96 h-96 bg-[#282825] rounded-full absolute bottom-[-12rem] left-[11rem]"></div>
             <div className="absolute bottom-[-11rem] left-40">
