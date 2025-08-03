@@ -8,6 +8,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "motion": "^12.23.12",
     "prettier": "^3.6.2",
     "react": "^18.3.0",
     "react-dom": "^18.3.0",

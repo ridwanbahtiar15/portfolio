@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { AnimatePresence, motion } from "motion/react";
 import getImageUrl from "./utils/imageGetter";
 
 export default function App() {
@@ -33,25 +34,44 @@ export default function App() {
             />
           </div>
           <div className="max-lg:hidden text-lg flex gap-16">
-            <p className="transition-all duration-100 hover:scale-110 cursor-pointer">
+            <motion.p
+              className="cursor-pointer"
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ scale: 0.8 }}
+            >
               About
-            </p>
-            <p className="transition-all duration-100 hover:scale-110 cursor-pointer">
+            </motion.p>
+            <motion.p
+              className="cursor-pointer"
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ scale: 0.8 }}
+            >
               Projects
-            </p>
-            <p className="transition-all duration-100 hover:scale-110 cursor-pointer">
+            </motion.p>
+            <motion.p
+              className="cursor-pointer"
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ scale: 0.8 }}
+            >
               Contact
-            </p>
+            </motion.p>
           </div>
         </div>
         {/* End Navbar */}
         {/* Hero */}
         <div className="xl:flex font-rubik mt-20 xl:mt-40 xl:justify-between xl:items-center">
           <div className="xl:hidden xl:w-1/2 lg:relative flex w-full justify-center">
-            <img
+            <motion.img
               src={getImageUrl("hero", "png")}
               alt="hero"
               className="w-64 h-6w-64 rounded-full border-4 border-[#282825]"
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{
+                duration: 0.8,
+                delay: 0.5,
+                ease: [0, 0.71, 0.2, 1.01],
+              }}
             />
           </div>
 
@@ -76,11 +96,18 @@ export default function App() {
           </div>
           <div className="max-xl:hidden lg:w-1/2 lg:relative">
             <div className="w-96 h-96 bg-[#282825] rounded-full absolute bottom-[-12rem] left-[11rem]"></div>
-            <div className="absolute bottom-[-12rem] left-40">
-              <img
+            <div className="absolute bottom-[-11rem] left-40">
+              <motion.img
                 src={getImageUrl("hero", "png")}
                 alt="hero"
                 className="w-96 h-96 rounded-full border-4 border-[#282825]"
+                initial={{ opacity: 0, scale: 0.5 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{
+                  duration: 0.8,
+                  delay: 0.5,
+                  ease: [0, 0.71, 0.2, 1.01],
+                }}
               />
             </div>
           </div>
@@ -88,18 +115,27 @@ export default function App() {
         {/* End Hero */}
       </div>
       {/* Navbar Mobile */}
-      {isDropdownShow && (
-        <>
-          <div className="max-sm:w-[89%] w-[94%] h-40 p-6 bg-[#282825] max-lg:absolute max-lg:top-[5.8rem] max-lg:left-8 rounded-lg"></div>
-          <div className="font-rubik w-full p-6 lg:hidden max-lg:absolute max-lg:top-12">
-            <div className="lg:hidden text-lg p-4 text-[#282825] w-full grid grid-cols-1 gap-6 bg-[#f9f5f2] border-2 border-[#282825] rounded-lg">
-              <p className="hover:font-medium col-start-1">About</p>
-              <p className="hover:font-medium col-start-1">Projects</p>
-              <p className="hover:font-medium col-start-1">Contact</p>
-            </div>
-          </div>
-        </>
-      )}
+      <div className="max-lg:absolute max-lg:top-24 max-lg:left-0 max-lg:w-full px-6">
+        <AnimatePresence initial={false}>
+          {isDropdownShow && (
+            <motion.div
+              initial={{ opacity: 1, scale: 1, y: -2 }}
+              animate={{ y: 4 }}
+              exit={{ y: -2 }}
+            >
+              {/* <div className="w-10 h-10 bg-slate-500"></div> */}
+              <div className="max-lg:w-full h-40 bg-[#282825] rounded-lg ml-2"></div>
+              <div className="font-rubik max-lg:w-full h-40 bg-[#282825] rounded-lg absolute top-[-1rem]">
+                <div className="lg:hidden text-lg p-4 text-[#282825] w-full grid grid-cols-1 gap-6 bg-[#f9f5f2] border-2 border-[#282825] rounded-lg">
+                  <p className="hover:font-medium col-start-1">About</p>
+                  <p className="hover:font-medium col-start-1">Projects</p>
+                  <p className="hover:font-medium col-start-1">Contact</p>
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
       {/* End Navbar Mobile */}
     </>
   );
