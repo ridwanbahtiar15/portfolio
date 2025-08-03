@@ -8,7 +8,10 @@ export default function App() {
   return (
     // Hero
     <>
-      <div className="font-rubik w-full py-6 px-6 lg:py-12 lg:px-28 bg-[#f9f5f2] h-screen">
+      <div
+        className="font-rubik w-full py-6 px-6 lg:py-12 lg:px-28 bg-[#f9f5f2] h-screen"
+        onClick={() => isDropdownShow && setIsDropdownShow(false)}
+      >
         {/* Navbar */}
         <div className="flex justify-between text-[#282825]">
           <div className="max-sm:text-lg text-2xl font-medium">
@@ -30,11 +33,13 @@ export default function App() {
             />
           </div>
           <div className="max-lg:hidden text-lg flex gap-16">
-            <p className="transition-all duration-100 hover:scale-110">About</p>
-            <p className="transition-all duration-100 hover:scale-110">
+            <p className="transition-all duration-100 hover:scale-110 cursor-pointer">
+              About
+            </p>
+            <p className="transition-all duration-100 hover:scale-110 cursor-pointer">
               Projects
             </p>
-            <p className="transition-all duration-100 hover:scale-110">
+            <p className="transition-all duration-100 hover:scale-110 cursor-pointer">
               Contact
             </p>
           </div>
