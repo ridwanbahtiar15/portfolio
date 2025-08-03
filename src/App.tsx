@@ -17,11 +17,17 @@ export default function App() {
           <div
             className="lg:hidden"
             onClick={() => {
-              setIsDropdownShow(true);
-              console.log("ok");
+              setIsDropdownShow(!isDropdownShow);
             }}
           >
-            <img src={getImageUrl("u_align-right", "svg")} alt="burger" />
+            <img
+              src={
+                isDropdownShow
+                  ? getImageUrl("close", "svg")
+                  : getImageUrl("u_align-right", "svg")
+              }
+              alt="burger"
+            />
           </div>
           <div className="max-lg:hidden text-lg flex gap-16">
             <p className="transition-all duration-100 hover:scale-110">About</p>
@@ -78,27 +84,16 @@ export default function App() {
       </div>
       {/* Navbar Mobile */}
       {isDropdownShow && (
-        <div className="font-rubik w-full py-6 px-6 bg-[#f9f5f2]/80 backdrop-blur-md h-screen lg:hidden max-lg:absolute max-lg:top-0">
-          <div className="flex justify-between text-[#282825] backdrop-blur-none">
-            <div className="max-sm:text-lg text-2xl font-medium">
-              Ridwan.Bahtiar
-            </div>
-            <div className="lg:hidden" onClick={() => setIsDropdownShow(false)}>
-              <img src={getImageUrl("close", "svg")} alt="burger" />
+        <>
+          <div className="max-sm:w-[89%] w-[94%] h-40 p-6 bg-[#282825] max-lg:absolute max-lg:top-[5.8rem] max-lg:left-8 rounded-lg"></div>
+          <div className="font-rubik w-full p-6 lg:hidden max-lg:absolute max-lg:top-12">
+            <div className="lg:hidden text-lg p-4 text-[#282825] w-full grid grid-cols-1 gap-6 bg-[#f9f5f2] border-2 border-[#282825] rounded-lg">
+              <p className="hover:font-medium col-start-1">About</p>
+              <p className="hover:font-medium col-start-1">Projects</p>
+              <p className="hover:font-medium col-start-1">Contact</p>
             </div>
           </div>
-          <div className="lg:hidden text-lg text-[#282825] backdrop-blur-none mt-10 w-full grid grid-cols-3 gap-6">
-            <p className="transition-all duration-100 hover:scale-110 col-span-1 col-start-2 text-center">
-              About
-            </p>
-            <p className="transition-all duration-100 hover:scale-110 col-span-1 col-start-2 text-center">
-              Projects
-            </p>
-            <p className="transition-all duration-100 hover:scale-110 col-span-1 col-start-2 text-center">
-              Contact
-            </p>
-          </div>
-        </div>
+        </>
       )}
       {/* End Navbar Mobile */}
     </>
