@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import getImageUrl from "./utils/imageGetter";
 
 export default function App() {
-  const [isDropdownShow, setIsDropdownShow] = useState(true);
+  const [isDropdownShow, setIsDropdownShow] = useState(false);
 
   return (
     // Hero
