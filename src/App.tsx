@@ -7,8 +7,8 @@ export default function App() {
   const [isDropdownShow, setIsDropdownShow] = useState(false);
 
   return (
-    // Hero
     <>
+      {/* About */}
       <div
         className="font-rubik w-full py-6 px-6 lg:py-12 lg:px-28 bg-[#f9f5f2] h-screen"
         onClick={() => isDropdownShow && setIsDropdownShow(false)}
@@ -94,8 +94,9 @@ export default function App() {
             <p className="text-lg md:text-xl text-[#52514e] tracking-wide mb-4">
               Hello,
             </p>
-            <p className="text-4xl md:text-6xl font-medium text-[#282825] mb-4">
-              I'm Ridwan Bahtiar.
+            <p className="text-3xl md:text-6xl font-medium text-[#282825] mb-4">
+              I'm <span className="font-bold">Ridwan</span>{" "}
+              <span className="text-[#f7cb45]">Bahtiar</span>
             </p>
             <p className="text-md md:text-xl text-[#52514e] tracking-wide mb-12">
               I'm passionate about programming and electronics, and I enjoy
@@ -146,6 +147,167 @@ export default function App() {
         </div>
         {/* End Hero */}
       </div>
+      {/* End About */}
+
+      {/* Projects */}
+      <div className="font-rubik w-full py-6 px-6 lg:py-12 lg:px-28 bg-white">
+        <div className="text-center text-[#282825] mt-16">
+          <p className="text-2xl lg:text-5xl font-bold mb-6">
+            Featured Projects
+          </p>
+          <p className="text-sm lg:text-base tracking-wide">
+            Projects that blend clean code, modern tools, and practical
+            solutions to real-world problems.
+          </p>
+        </div>
+        <div className="w-full mt-20 flex flex-wrap gap-1 gap-y-8 lg:gap-y-0">
+          <div className="w-full flex max-md:flex-col-reverse">
+            <div className="w-full lg:w-1/2 lg:h-[32rem] py-6 lg:py-20 text-[#282825] flex items-center">
+              <div className="flex flex-wrap gap-y-4 md:w-[80%]">
+                <p className="lg:text-lg font-medium">
+                  Industrial Automation Project – “FIDDING” (Feeder + Sorting
+                  Automation System)
+                </p>
+                <p>
+                  A simulation system for automated feeding and sorting,
+                  controlled using a Mitsubishi Programmable Logic Controller
+                  (PLC) and pneumatic actuators.
+                </p>
+                <div className="flex items-center gap-x-2 lg:mt-4">
+                  <p className="font-medium cursor-pointer">See full detail </p>
+                  <img src={getImageUrl("arrow-right", "svg")} alt="icon" />
+                </div>
+              </div>
+            </div>
+            <div className="w-full lg:w-1/2 lg:h-[32rem] flex items-center">
+              <div className="">
+                <img
+                  src={getImageUrl("1.1", "jpeg")}
+                  alt="image"
+                  className="bg-center"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className="w-full flex flex-wrap">
+            <div className="w-full md:w-1/2 lg:h-[32rem] flex items-center">
+              <div className="">
+                <img
+                  src={getImageUrl("2.1", "jpeg")}
+                  alt="image"
+                  className="bg-center"
+                />
+              </div>
+            </div>
+            <div className="w-full md:w-1/2 lg:h-[32rem] md:pl-6 py-6 lg:py-20 lg:pl-20 text-[#282825] flex items-center">
+              <div className="flex flex-wrap gap-y-4">
+                <p className="lg:text-lg font-medium">
+                  Portable Plant Watering System Using ESP8266 Based on IoT
+                </p>
+                <p>
+                  An IoT-based portable system for automatic and manual plant
+                  watering, controllable via a website or physical buttons.
+                  Designed for household use and urban farming environments.
+                </p>
+                <div className="flex items-center gap-x-2 lg:mt-4">
+                  <p className="font-medium cursor-pointer">See full detail </p>
+                  <img src={getImageUrl("arrow-right", "svg")} alt="icon" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="w-full flex max-md:flex-col-reverse">
+            <div className="w-full lg:w-1/2 lg:h-[32rem] py-6 lg:py-20 text-[#282825] flex items-center">
+              <div className="flex flex-wrap gap-y-4 md:w-[80%]">
+                <p className="lg:text-lg font-medium">Tickitz Movie</p>
+                <p>
+                  A web application for online movie ticket booking and
+                  transaction management.
+                </p>
+                <p>
+                  Tech Stack: Go · PostgreSQL · React.js · JSON Web Token (JWT)
+                  · Redux · Tailwind CSS
+                </p>
+                <div className="flex items-center gap-x-2 lg:mt-4">
+                  <p className="font-medium cursor-pointer">See full detail </p>
+                  <img src={getImageUrl("arrow-right", "svg")} alt="icon" />
+                </div>
+              </div>
+            </div>
+            <div className="w-full lg:w-1/2 lg:h-[32rem] flex items-center">
+              <div className="">
+                <img
+                  src={getImageUrl("3.1", "jpg")}
+                  alt="image"
+                  className="bg-center"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className="w-full flex flex-wrap">
+            <div className="w-full md:w-1/2 lg:h-[32rem] flex items-center">
+              <div className="">
+                <img
+                  src={getImageUrl("4.1", "jpg")}
+                  alt="image"
+                  className="bg-center"
+                />
+              </div>
+            </div>
+            <div className="w-full md:w-1/2 lg:h-[32rem] md:pl-6 py-6 lg:py-20 lg:pl-20 text-[#282825] flex items-center">
+              <div className="flex flex-wrap gap-y-4">
+                <p className="lg:text-lg font-medium">E-Wallet</p>
+                <p>
+                  A web application for sending and receiving money through
+                  digital wallets.
+                </p>
+                <p>
+                  Tech Stack: PostgreSQL · Express.js · React.js · JSON Web
+                  Token (JWT) · Redux · Tailwind CSS
+                </p>
+                <div className="flex items-center gap-x-2 lg:mt-4">
+                  <p className="font-medium cursor-pointer">See full detail </p>
+                  <img src={getImageUrl("arrow-right", "svg")} alt="icon" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="w-full flex max-md:flex-col-reverse">
+            <div className="w-full lg:w-1/2 lg:h-[32rem] py-6 lg:py-20 text-[#282825] flex items-center">
+              <div className="flex flex-wrap gap-y-4 md:w-[80%]">
+                <p className="lg:text-lg font-medium">Coffee Shop</p>
+                <p>
+                  A web application for ordering coffee and managing online
+                  transactions.
+                </p>
+                <p>
+                  Tech Stack: Go · PostgreSQL · Express.js · React.js · JSON Web
+                  Token (JWT) · Redux · Tailwind CSS
+                </p>
+                <div className="flex items-center gap-x-2 lg:mt-4">
+                  <p className="font-medium cursor-pointer">See full detail </p>
+                  <img src={getImageUrl("arrow-right", "svg")} alt="icon" />
+                </div>
+              </div>
+            </div>
+            <div className="w-full lg:w-1/2 lg:h-[32rem] flex items-center">
+              <div className="">
+                <img
+                  src={getImageUrl("5.1", "jpg")}
+                  alt="image"
+                  className="bg-center"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* End Projects */}
+
       {/* Navbar Mobile */}
       <div className="max-lg:absolute max-lg:top-24 max-lg:left-0 max-lg:w-full px-6">
         <AnimatePresence initial={false}>
