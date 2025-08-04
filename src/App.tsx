@@ -1,16 +1,21 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
+import { HashLink } from "react-router-hash-link";
 import getImageUrl from "./utils/imageGetter";
 
 export default function App() {
   const [isDropdownShow, setIsDropdownShow] = useState(false);
+  const [isInputNameHover, setIsInputNameHover] = useState(false);
+  const [isInputEmailHover, setIsInputEmailHover] = useState(false);
+  const [isInputDescHover, setIsInputDescHover] = useState(false);
 
   return (
     <>
       {/* About */}
       <div
         className="font-rubik w-full py-6 px-6 lg:py-12 lg:px-28 bg-[#f9f5f2] h-screen"
+        id="about"
         onClick={() => isDropdownShow && setIsDropdownShow(false)}
       >
         {/* Navbar */}
@@ -30,31 +35,36 @@ export default function App() {
                   ? getImageUrl("close", "svg")
                   : getImageUrl("u_align-right", "svg")
               }
-              alt="burger"
             />
           </div>
           <div className="max-lg:hidden text-lg flex gap-16">
-            <motion.p
-              className="cursor-pointer"
-              whileHover={{ scale: 1.2 }}
-              whileTap={{ scale: 0.8 }}
-            >
-              About
-            </motion.p>
-            <motion.p
-              className="cursor-pointer"
-              whileHover={{ scale: 1.2 }}
-              whileTap={{ scale: 0.8 }}
-            >
-              Projects
-            </motion.p>
-            <motion.p
-              className="cursor-pointer"
-              whileHover={{ scale: 1.2 }}
-              whileTap={{ scale: 0.8 }}
-            >
-              Contact
-            </motion.p>
+            <HashLink to="/#about">
+              <motion.p
+                className="cursor-pointer"
+                whileHover={{ scale: 1.2 }}
+                whileTap={{ scale: 0.8 }}
+              >
+                About
+              </motion.p>
+            </HashLink>
+            <HashLink to="/#projects">
+              <motion.p
+                className="cursor-pointer"
+                whileHover={{ scale: 1.2 }}
+                whileTap={{ scale: 0.8 }}
+              >
+                Projects
+              </motion.p>
+            </HashLink>
+            <HashLink to="/#contact">
+              <motion.p
+                className="cursor-pointer"
+                whileHover={{ scale: 1.2 }}
+                whileTap={{ scale: 0.8 }}
+              >
+                Contact
+              </motion.p>
+            </HashLink>
           </div>
         </div>
         {/* End Navbar */}
@@ -104,12 +114,12 @@ export default function App() {
             </p>
             <div className="relative">
               <div className="w-[10.3rem] h-[2.7rem] lg:w-[12.3rem] lg:h-[3.7rem] bg-[#282825] absolute top-[-0.8rem] left-2 rounded-xl"></div>
-              <Link
+              <HashLink
                 to="#contact"
                 className="text-sm lg:text-base font-medium text-[#282825] py-2.5 px-6 lg:py-4 lg:px-8 bg-[#f7cb45] border-2 border-[#282825] rounded-xl absolute top-[-1.2rem] left-0 transition-all duration-300 lg:active:top-[-1rem] lg:active:left-[0.2rem] max-sm:active:top-[-1rem] max-sm:active:left-[0.1rem]"
               >
                 🚀 Start Growing
-              </Link>
+              </HashLink>
             </div>
           </div>
           <div className="max-xl:hidden lg:w-1/2 lg:relative">
@@ -150,7 +160,10 @@ export default function App() {
       {/* End About */}
 
       {/* Projects */}
-      <div className="font-rubik w-full py-6 px-6 lg:py-12 lg:px-28 bg-white">
+      <div
+        className="font-rubik w-full py-6 px-6 lg:py-12 lg:px-28 bg-white"
+        id="projects"
+      >
         <div className="text-center text-[#282825] mt-16">
           <p className="text-2xl lg:text-5xl font-bold mb-6">
             Featured Projects
@@ -308,6 +321,169 @@ export default function App() {
       </div>
       {/* End Projects */}
 
+      {/* Contact */}
+      <div
+        className="font-rubik w-full py-6 px-6 lg:py-12 lg:px-28 bg-[#f9f5f2] min-h-screen mt-16"
+        id="contact"
+      >
+        <div className="flex">
+          <div className="text-[#282825] lg:w-1/2">
+            <p className="text-2xl lg:text-5xl font-bold mb-6 text-center lg:text-left">
+              Tell me about your project
+            </p>
+            <p className="text-sm lg:text-base tracking-wide mb-20 text-center lg:text-left">
+              These are the products of exploration, learning, and building real
+              world projects using modern tools to bring ideas into action.
+            </p>
+
+            <div className="text-[#282825] flex lg:hidden">
+              <div className="w-full">
+                <div className="relative">
+                  <div
+                    className={`w-full h-14 bg-[#282825] absolute rounded-xl transition-all ${isInputNameHover ? "top-2.5 left-2.5" : "top-1.5 left-1.5"}`}
+                  ></div>
+                  <input
+                    type="text"
+                    placeholder="Your name "
+                    className="p-4 rounded-xl focus:outline-none w-full ring-2 ring-[#282825] absolute"
+                    onMouseOver={() => setIsInputNameHover(true)}
+                    onMouseLeave={() => setIsInputNameHover(false)}
+                  />
+                </div>
+                <div className="relative mt-24">
+                  <div
+                    className={`w-full h-14 bg-[#282825] absolute rounded-xl transition-all ${isInputEmailHover ? "top-2.5 left-2.5" : "top-1.5 left-1.5"}`}
+                  ></div>
+                  <input
+                    type="email"
+                    placeholder="Your email "
+                    className="p-4 rounded-xl focus:outline-none w-full ring-2 ring-[#282825] absolute"
+                    onMouseOver={() => setIsInputEmailHover(true)}
+                    onMouseLeave={() => setIsInputEmailHover(false)}
+                  />
+                </div>
+                <div className="relative mt-48">
+                  <div
+                    className={`w-full h-28 bg-[#282825] absolute rounded-xl transition-all ${isInputDescHover ? "top-2.5 left-2.5" : "top-1.5 left-1.5"}`}
+                  ></div>
+                  <textarea
+                    placeholder="Project detail"
+                    className="p-4 rounded-xl focus:outline-none w-full ring-2 ring-[#282825] absolute h-28"
+                    onMouseOver={() => setIsInputDescHover(true)}
+                    onMouseLeave={() => setIsInputDescHover(false)}
+                  />
+                </div>
+                <div className="relative mt-[23rem]">
+                  <div className="w-[8.5rem] h-[2.7rem] bg-[#282825] absolute top-[-0.8rem] right-[-0.25rem] rounded-xl"></div>
+                  <Link
+                    to="#"
+                    className="text-sm font-medium text-[#282825] py-2.5 px-6 bg-[#f7cb45] border-2 border-[#282825] rounded-xl absolute top-[-1.2rem] right-0 transition-all duration-300 active:top-[-1rem] active:right-[-0.25rem]"
+                  >
+                    Get In Touch
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <p className="text-sm lg:text-base text-[#a4a4a4] mt-20 mb-3">
+                Get connect
+              </p>
+              <div className="flex gap-x-2 mb-2">
+                <img src={getImageUrl("mail", "svg")} alt="icon" />
+                <p className="lg:text-lg text-[#282825] font-medium">
+                  ridwanbahtiar15@gmail.com
+                </p>
+              </div>
+              <div className="flex gap-x-2 mb-2">
+                <img src={getImageUrl("u_linkedin", "svg")} alt="icon" />
+                <div className="flex items-center">
+                  <img src={getImageUrl("link", "svg")} alt="icon" />
+                  <Link
+                    to="https://www.linkedin.com/in/ridwan-bahtiar"
+                    target="_blank"
+                    className="lg:text-lg text-[#282825] font-medium hover:underline hover:underline-offset-4"
+                  >
+                    linkedin.com/in/ridwan-bahtiar
+                  </Link>
+                </div>
+              </div>
+              <div className="flex gap-x-2">
+                <img src={getImageUrl("github", "svg")} alt="icon" />
+                <div className="flex items-center">
+                  <img src={getImageUrl("link", "svg")} alt="icon" />
+                  <Link
+                    to="https://github.com/ridwanbahtiar15"
+                    target="_blank"
+                    className="lg:text-lg text-[#282825] font-medium hover:underline hover:underline-offset-4"
+                  >
+                    github.com/ridwanbahtiar15
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="text-[#282825] w-1/2 flex pl-20 max-lg:hidden">
+            <div className="w-full">
+              <div className="relative">
+                <div
+                  className={`w-full h-14 bg-[#282825] absolute rounded-xl transition-all ${isInputNameHover ? "top-2.5 left-2.5" : "top-1.5 left-1.5"}`}
+                ></div>
+                <input
+                  type="text"
+                  placeholder="Your name "
+                  className="p-4 rounded-xl focus:outline-none w-full ring-2 ring-[#282825] absolute"
+                  onMouseOver={() => setIsInputNameHover(true)}
+                  onMouseLeave={() => setIsInputNameHover(false)}
+                />
+              </div>
+              <div className="relative mt-24">
+                <div
+                  className={`w-full h-14 bg-[#282825] absolute rounded-xl transition-all ${isInputEmailHover ? "top-2.5 left-2.5" : "top-1.5 left-1.5"}`}
+                ></div>
+                <input
+                  type="email"
+                  placeholder="Your email "
+                  className="p-4 rounded-xl focus:outline-none w-full ring-2 ring-[#282825] absolute"
+                  onMouseOver={() => setIsInputEmailHover(true)}
+                  onMouseLeave={() => setIsInputEmailHover(false)}
+                />
+              </div>
+              <div className="relative mt-48">
+                <div
+                  className={`w-full h-28 bg-[#282825] absolute rounded-xl transition-all ${isInputDescHover ? "top-2.5 left-2.5" : "top-1.5 left-1.5"}`}
+                ></div>
+                <textarea
+                  placeholder="Project detail"
+                  className="p-4 rounded-xl focus:outline-none w-full ring-2 ring-[#282825] absolute h-28"
+                  onMouseOver={() => setIsInputDescHover(true)}
+                  onMouseLeave={() => setIsInputDescHover(false)}
+                />
+              </div>
+              <div className="relative mt-[23rem]">
+                <div className="w-[10.3rem] h-[2.7rem] lg:w-40 lg:h-[3.7rem] bg-[#282825] absolute top-[-0.8rem] right-[-0.25rem] rounded-xl"></div>
+                <Link
+                  to="#"
+                  className="text-sm lg:text-base font-medium text-[#282825] py-2.5 px-6 lg:py-4 lg:px-8 bg-[#f7cb45] border-2 border-[#282825] rounded-xl absolute top-[-1.2rem] right-0 transition-all duration-300 lg:active:top-[-1rem] lg:active:right-[-0.25rem] max-sm:active:top-[-1rem] max-sm:active:left-[0.1rem]"
+                >
+                  Get In Touch
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* End Contact */}
+
+      {/* Footer */}
+      <div className="font-rubik w-full py-2 lg:py-6 lg:px-28 bg-[#f9f5f2] border-t-2 border-[#282825]">
+        <p className="text-center text-[#282825] lg:text-lg font-medium">
+          &copy; 2025 Ridwan Bahtiar. Made With ❤️.
+        </p>
+      </div>
+      {/* End Footer */}
+
       {/* Navbar Mobile */}
       <div className="max-lg:absolute max-lg:top-24 max-lg:left-0 max-lg:w-full px-6">
         <AnimatePresence initial={false}>
@@ -321,9 +497,27 @@ export default function App() {
               <div className="max-lg:w-full h-40 bg-[#282825] rounded-lg ml-2"></div>
               <div className="font-rubik max-lg:w-full h-40 bg-[#282825] rounded-lg absolute top-[-1rem]">
                 <div className="lg:hidden text-lg p-4 text-[#282825] w-full grid grid-cols-1 gap-6 bg-[#f9f5f2] border-2 border-[#282825] rounded-lg">
-                  <p className="hover:font-medium col-start-1">About</p>
-                  <p className="hover:font-medium col-start-1">Projects</p>
-                  <p className="hover:font-medium col-start-1">Contact</p>
+                  <HashLink
+                    to="/#about"
+                    className="hover:font-medium col-start-1"
+                    onClick={() => setIsDropdownShow(false)}
+                  >
+                    About
+                  </HashLink>
+                  <HashLink
+                    to="/#projects"
+                    className="hover:font-medium col-start-1"
+                    onClick={() => setIsDropdownShow(false)}
+                  >
+                    Projects
+                  </HashLink>
+                  <HashLink
+                    to="/#contact"
+                    className="hover:font-medium col-start-1"
+                    onClick={() => setIsDropdownShow(false)}
+                  >
+                    Contact
+                  </HashLink>
                 </div>
               </div>
             </motion.div>
