@@ -338,7 +338,7 @@ export default function App() {
 
       {/* Contact */}
       <div
-        className="font-rubik w-full py-10 px-6 lg:py-12 lg:px-28 bg-[#f9f5f2] min-h-screen mt-16"
+        className="font-rubik w-full py-16 px-6 lg:py-32 lg:px-28 bg-[#f9f5f2] min-h-screen mt-12"
         id="contact"
       >
         <div className="flex">
