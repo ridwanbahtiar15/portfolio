@@ -81,20 +81,26 @@ export default function App() {
         {/* Hero */}
         <div className="xl:flex font-rubik mt-20 xl:mt-40 xl:justify-between xl:items-center">
           <div className="xl:hidden xl:w-1/2 relative flex w-full justify-center">
-            <img
+            <motion.img
               src={getImageUrl("lcd", "png")}
               alt="icon"
               className="w-20 absolute top-0 left-6 md:left-44"
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ opacity: 1, scale: 1 }}
             />
-            <img
+            <motion.img
               src={getImageUrl("code", "png")}
               alt="icon"
               className="w-20 absolute bottom-0 left-6 md:left-44"
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ opacity: 1, scale: 1 }}
             />
-            <img
+            <motion.img
               src={getImageUrl("avo", "png")}
               alt="icon"
               className="w-20 absolute top-0 right-6 md:right-44"
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ opacity: 1, scale: 1 }}
             />
             <motion.img
               src={getImageUrl("hero", "png")}
@@ -133,20 +139,26 @@ export default function App() {
             </div>
           </div>
           <div className="max-xl:hidden lg:w-1/2 lg:relative">
-            <img
+            <motion.img
               src={getImageUrl("code", "png")}
               alt="icon"
               className="w-28 absolute top-2 left-20"
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ opacity: 1, scale: 1 }}
             />
-            <img
+            <motion.img
               src={getImageUrl("lcd", "png")}
               alt="icon"
               className="w-28 absolute bottom-28 left-24"
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ opacity: 1, scale: 1 }}
             />
-            <img
+            <motion.img
               src={getImageUrl("avo", "png")}
               alt="icon"
               className="w-28 absolute bottom-28 right-0"
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ opacity: 1, scale: 1 }}
             />
             <div className="w-96 h-96 bg-[#282825] rounded-full absolute bottom-[-12rem] left-[11rem]"></div>
             <div className="absolute bottom-[-11rem] left-40">
