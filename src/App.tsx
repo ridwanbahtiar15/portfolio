@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, motion, scale } from "motion/react";
 import { HashLink } from "react-router-hash-link";
 import getImageUrl from "./utils/imageGetter";
 
@@ -9,6 +9,7 @@ export default function App() {
   const [isInputNameHover, setIsInputNameHover] = useState(false);
   const [isInputEmailHover, setIsInputEmailHover] = useState(false);
   const [isInputDescHover, setIsInputDescHover] = useState(false);
+  const [isLoveClicked, setIsLoveClicked] = useState(false);
 
   return (
     <>
@@ -29,13 +30,22 @@ export default function App() {
               setIsDropdownShow(!isDropdownShow);
             }}
           >
-            <img
-              src={
-                isDropdownShow
-                  ? getImageUrl("close", "svg")
-                  : getImageUrl("u_align-right", "svg")
-              }
-            />
+            <AnimatePresence initial={true}>
+              {isDropdownShow ? (
+                <motion.img
+                  initial={{ opacity: 0, scale: 0 }}
+                  animate={{
+                    opacity: 1,
+                    scale: 1,
+                    rotate: 180,
+                  }}
+                  exit={{ opacity: 0, scale: 0 }}
+                  src={getImageUrl("close", "svg")}
+                />
+              ) : (
+                <motion.img src={getImageUrl("u_align-right", "svg")} />
+              )}
+            </AnimatePresence>
           </div>
           <div className="max-lg:hidden text-lg flex gap-16">
             <HashLink to="/#about">
@@ -193,26 +203,23 @@ export default function App() {
               </div>
             </div>
             <div className="w-full lg:w-1/2 lg:h-[32rem] flex items-center">
-              <div className="">
-                <img
-                  src={getImageUrl("1.1", "jpeg")}
-                  alt="image"
-                  className="bg-center"
-                />
-              </div>
+              <img
+                src={getImageUrl("1.1", "jpeg")}
+                alt="image"
+                className="bg-center"
+              />
             </div>
           </div>
 
           <div className="w-full flex flex-wrap">
             <div className="w-full md:w-1/2 lg:h-[32rem] flex items-center">
-              <div className="">
-                <img
-                  src={getImageUrl("2.1", "jpeg")}
-                  alt="image"
-                  className="bg-center"
-                />
-              </div>
+              <img
+                src={getImageUrl("2.1", "jpeg")}
+                alt="image"
+                className="bg-center"
+              />
             </div>
+
             <div className="w-full md:w-1/2 lg:h-[32rem] md:pl-6 py-6 lg:py-20 lg:pl-20 text-[#282825] flex items-center">
               <div className="flex flex-wrap gap-y-4">
                 <p className="lg:text-lg font-medium">
@@ -250,13 +257,11 @@ export default function App() {
               </div>
             </div>
             <div className="w-full lg:w-1/2 lg:h-[32rem] flex items-center">
-              <div className="">
-                <img
-                  src={getImageUrl("3.1", "jpg")}
-                  alt="image"
-                  className="bg-center"
-                />
-              </div>
+              <img
+                src={getImageUrl("3.1", "jpg")}
+                alt="image"
+                className="bg-center"
+              />
             </div>
           </div>
 
@@ -308,13 +313,11 @@ export default function App() {
               </div>
             </div>
             <div className="w-full lg:w-1/2 lg:h-[32rem] flex items-center">
-              <div className="">
-                <img
-                  src={getImageUrl("5.1", "jpg")}
-                  alt="image"
-                  className="bg-center"
-                />
-              </div>
+              <img
+                src={getImageUrl("5.1", "jpg")}
+                alt="image"
+                className="bg-center"
+              />
             </div>
           </div>
         </div>
@@ -323,7 +326,7 @@ export default function App() {
 
       {/* Contact */}
       <div
-        className="font-rubik w-full py-6 px-6 lg:py-12 lg:px-28 bg-[#f9f5f2] min-h-screen mt-16"
+        className="font-rubik w-full py-10 px-6 lg:py-12 lg:px-28 bg-[#f9f5f2] min-h-screen mt-16"
         id="contact"
       >
         <div className="flex">
@@ -350,7 +353,7 @@ export default function App() {
                     onMouseLeave={() => setIsInputNameHover(false)}
                   />
                 </div>
-                <div className="relative mt-24">
+                <div className="relative mt-20">
                   <div
                     className={`w-full h-14 bg-[#282825] absolute rounded-xl transition-all ${isInputEmailHover ? "top-2.5 left-2.5" : "top-1.5 left-1.5"}`}
                   ></div>
@@ -362,7 +365,7 @@ export default function App() {
                     onMouseLeave={() => setIsInputEmailHover(false)}
                   />
                 </div>
-                <div className="relative mt-48">
+                <div className="relative mt-40">
                   <div
                     className={`w-full h-28 bg-[#282825] absolute rounded-xl transition-all ${isInputDescHover ? "top-2.5 left-2.5" : "top-1.5 left-1.5"}`}
                   ></div>
@@ -373,11 +376,11 @@ export default function App() {
                     onMouseLeave={() => setIsInputDescHover(false)}
                   />
                 </div>
-                <div className="relative mt-[23rem]">
-                  <div className="w-[8.5rem] h-[2.7rem] bg-[#282825] absolute top-[-0.8rem] right-[-0.25rem] rounded-xl"></div>
+                <div className="relative mt-[19.8rem]">
+                  <div className="w-full max-md:left-1 md:w-[8.5rem] h-[2.7rem] bg-[#282825] absolute top-[-0.8rem] md:right-[-0.25rem] rounded-xl"></div>
                   <Link
                     to="#"
-                    className="text-sm font-medium text-[#282825] py-2.5 px-6 bg-[#f7cb45] border-2 border-[#282825] rounded-xl absolute top-[-1.2rem] right-0 transition-all duration-300 active:top-[-1rem] active:right-[-0.25rem]"
+                    className="text-sm font-medium text-[#282825] py-2.5 px-6 bg-[#f7cb45] border-2 border-[#282825] rounded-xl absolute top-[-1.2rem] right-0 transition-all duration-300 active:top-[-1rem] active:right-[-0.1rem] max-sm:w-full text-center"
                   >
                     Get In Touch
                   </Link>
@@ -477,10 +480,36 @@ export default function App() {
       {/* End Contact */}
 
       {/* Footer */}
-      <div className="font-rubik w-full py-2 lg:py-6 lg:px-28 bg-[#f9f5f2] border-t-2 border-[#282825]">
-        <p className="text-center text-[#282825] lg:text-lg font-medium">
-          &copy; 2025 Ridwan Bahtiar. Made With ❤️.
-        </p>
+      <div className="font-rubik w-full py-4 lg:py-6 lg:px-28 bg-[#f9f5f2] border-t-2 border-[#282825]">
+        <AnimatePresence initial={false}>
+          <motion.p
+            className="text-center text-[#282825] lg:text-lg font-medium flex gap-x-1 cursor-pointer justify-center"
+            onClick={() => setIsLoveClicked(!isLoveClicked)}
+          >
+            &copy; 2025 Ridwan Bahtiar. Made with{" "}
+            {isLoveClicked ? (
+              <motion.div
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{
+                  opacity: 1,
+                  scale: 1,
+                  rotate: 360,
+                }}
+                exit={{ opacity: 0, scale: 0 }}
+              >
+                ❤️
+              </motion.div>
+            ) : (
+              <motion.div
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0 }}
+              >
+                ❤️
+              </motion.div>
+            )}
+          </motion.p>
+        </AnimatePresence>
       </div>
       {/* End Footer */}
 
