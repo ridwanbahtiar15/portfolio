@@ -204,9 +204,16 @@ export default function App() {
                   Automation System)
                 </p>
                 <p>
-                  A simulation system for automated feeding and sorting,
-                  controlled using a Mitsubishi Programmable Logic Controller
-                  (PLC) and pneumatic actuators.
+                  A training-oriented simulation system that automates feeding
+                  and sorting processes, using a Mitsubishi PLC and
+                  electro-pneumatic actuators. Designed to demonstrate
+                  real-world industrial automation with mechanical sequence
+                  control logic for education, testing, and prototyping
+                  environments.
+                </p>
+                <p>
+                  Tools & Technologies: Mitsubishi PLC, electro-pneumatic
+                  components, sequence control mechanisms.
                 </p>
                 <div className="flex items-center gap-x-2 lg:mt-4">
                   <p className="font-medium cursor-pointer">See full detail </p>
@@ -238,9 +245,18 @@ export default function App() {
                   Portable Plant Watering System Using ESP8266 Based on IoT
                 </p>
                 <p>
-                  An IoT-based portable system for automatic and manual plant
-                  watering, controllable via a website or physical buttons.
-                  Designed for household use and urban farming environments.
+                  A compact and portable IoT-based system for automatic and
+                  manual plant watering, controllable via a web interface or
+                  physical buttons. Designed for household use and urban farming
+                  environments, this system enables smart irrigation using
+                  real-time control and monitoring. Built using an ESP8266
+                  microcontroller, 3V relay, and LCD I2C, with a web-based
+                  dashboard developed using React.js, Express.js, and custom API
+                  communication for seamless device interaction.
+                </p>
+                <p>
+                  Tools & Technologies: ESP8266, 3V Relay, LCD I2C, React.js,
+                  Express.js, REST API development
                 </p>
                 <div className="flex items-center gap-x-2 lg:mt-4">
                   <p className="font-medium cursor-pointer">See full detail </p>
